@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NGL SPAMMER</title>
+<title>404 Not Found</title>
 <style>
 * {
   box-sizing: border-box;
@@ -12,400 +12,99 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
+  font-family: 'Arial', sans-serif;
+  background: #1a1a1a;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
 }
 
 .container {
-  width: 100%;
-  max-width: 600px;
-  margin: 20px;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  text-align: center;
-  animation: slide-up 0.5s ease-out;
+  z-index: 1;
 }
 
 h1 {
+  font-size: 12rem;
   margin-bottom: 20px;
-  color: #333;
+  color: #ffa500;
+  animation: flicker 1.5s infinite alternate;
 }
 
-.form-container {
-  margin-bottom: 20px;
-  animation: fade-in 1s ease-out;
+p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #ddd;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #333;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="number"],
-select {
-  width: calc(100% - 24px);
-  padding: 12px;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="number"]:focus,
-select:focus {
-  border-color: #ffa500;
-}
-
-input[type="email"],
-input[type="tel"] {
-  width: calc(100% - 24px);
-  padding: 12px;
-  margin-bottom: 20px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  transition: border-color 0.3s ease;
-}
-
-input[type="email"]:focus,
-input[type="tel"]:focus {
-  border-color: #ffa500;
-}
-
-button {
-  padding: 14px 32px;
+a {
+  text-decoration: none;
+  color: #fff;
   background-color: #ffa500;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-button:hover {
+a:hover {
   background-color: #ff7f00;
+  transform: scale(1.05);
 }
 
-.profile-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
 }
 
-.profile-container img {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
 }
 
-.profile-container .profile-info {
-  flex-grow: 1;
-  margin-left: 20px;
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow: 0 0 2px rgba(255,255,255,0.5), 0 0 3px rgba(255,255,255,0.5), 0 0 5px rgba(255,255,255,0.5);
+  animation: twinkling 1.5s infinite;
 }
 
-.profile-container .logout-btn {
-  background-color: #f44336;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+@keyframes twinkling {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
 }
 
-.profile-container .logout-btn:hover {
-  background-color: #d32f2f;
-}
-
-.hidden {
-  display: none;
-}
-
-.error-message {
-  color: red;
-  font-size: 0.9em;
-  margin-top: -15px;
-  margin-bottom: 10px;
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.stars:after {
+  content: '';
+  position: absolute;
+  top: 200%;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow: 0 0 2px rgba(255,255,255,0.5), 0 0 3px rgba(255,255,255,0.5), 0 0 5px rgba(255,255,255,0.5);
+  animation: twinkling 1.5s infinite;
 }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>NGL SPAM</h1>
-
-  <div id="auth-container">
-    <div id="signup-form" class="form-container">
-      <h2>Signup</h2>
-      <form id="signupForm" onsubmit="event.preventDefault(); signup();">
-        <label for="signup-name">Name:</label>
-        <input type="text" id="signup-name" name="signup-name" required>
-        <div id="name-error" class="error-message hidden">Name is required</div>
-
-        <label for="signup-email-phone">Email or Phone:</label>
-        <input type="text" id="signup-email-phone" name="signup-email-phone" required>
-        <div id="email-phone-error" class="error-message hidden">Valid email or phone number is required</div>
-
-        <label for="signup-password">Password:</label>
-        <input type="password" id="signup-password" name="signup-password" required>
-        <div id="password-error" class="error-message hidden">Password is required</div>
-
-        <label for="signup-profile-pic">Profile Picture URL:</label>
-        <input type="text" id="signup-profile-pic" name="signup-profile-pic" required>
-        <div id="profile-pic-error" class="error-message hidden">Profile Picture URL is required</div>
-
-        <button type="submit">Signup</button>
-        <p>Already have an account? <a href="#" onclick="toggleAuthForms()">Login</a></p>
-      </form>
-    </div>
-
-    <div id="login-form" class="form-container hidden">
-      <h2>Login</h2>
-      <form>
-        <label for="login-email-phone">Email or Phone:</label>
-        <input type="text" id="login-email-phone" name="login-email-phone" required>
-        <div id="login-email-phone-error" class="error-message hidden">Valid email or phone number is required</div>
-
-        <label for="login-password">Password:</label>
-        <input type="password" id="login-password" name="login-password" required>
-
-        <button type="button" onclick="login()">Login</button>
-        <p>Don't have an account? <a href="#" onclick="toggleAuthForms()">Signup</a></p>
-      </form>
-    </div>
-  </div>
-
-  <div id="ngl-container" class="hidden">
-    <div class="profile-container">
-      <img id="profile-pic" src="" alt="Profile Picture">
-      <div class="profile-info">
-        <h3 id="profile-name"></h3>
-        <p id="profile-email-phone"></p>
-      </div>
-      <button class="logout-btn" onclick="logout()">Logout</button>
-    </div>
-
-    <div class="form-container">
-      <form id="nglForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username">
-
-        <label for="category">Category:</label>
-        <select id="category" name="category">
-          <option value="love">Love</option>
-          <option value="insult">Insult</option>
-          <option value="confess">Confess</option>
-        </select>
-
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" min="1" max="24" value="24">
-
-        <button type="submit" onclick="event.preventDefault(); fetchNGLContent();">SUBMIT</button>
-      </form>
-    </div>
-  </div>
+<div class="background-container">
+  <div class="stars"></div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-
-  if (loggedInUser) {
-    document.getElementById('auth-container').classList.add('hidden');
-    document.getElementById('ngl-container').classList.remove('hidden');
-    document.getElementById('profile-pic').setAttribute('src', loggedInUser.profilePic);
-    document.getElementById('profile-name').textContent = loggedInUser.name;
-    document.getElementById('profile-email-phone').textContent = loggedInUser.emailPhone;
-  } else {
-    document.getElementById('auth-container').classList.remove('hidden');
-    document.getElementById('ngl-container').classList.add('hidden');
-  }
-});
-
-function toggleAuthForms() {
-  document.getElementById('signup-form').classList.toggle('hidden');
-  document.getElementById('login-form').classList.toggle('hidden');
-}
-
-function signup() {
-  const name = document.getElementById('signup-name').value.trim();
-  const emailPhone = document.getElementById('signup-email-phone').value.trim();
-  const password = document.getElementById('signup-password').value.trim();
-  const profilePic = document.getElementById('signup-profile-pic').value.trim();
-
-  if (!name) {
-    document.getElementById('name-error').classList.remove('hidden');
-    return;
-  } else {
-    document.getElementById('name-error').classList.add('hidden');
-  }
-
-  if (!validateEmailPhone(emailPhone)) {
-    document.getElementById('email-phone-error').classList.remove('hidden');
-    return;
-  } else {
-    document.getElementById('email-phone-error').classList.add('hidden');
-  }
-
-  if (!password) {
-    document.getElementById('password-error').classList.remove('hidden');
-    return;
-  } else {
-    document.getElementById('password-error').classList.add('hidden');
-  }
-
-  if (!profilePic) {
-    document.getElementById('profile-pic-error').classList.remove('hidden');
-    return;
-  } else {
-    document.getElementById('profile-pic-error').classList.add('hidden');
-  }
-
-  fetch('/signup', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ name, emailPhone, password, profilePic }),
-  })
-    .then(response => response.json())
-    .then(data => {
-      if (data.error) {
-        alert(data.error);
-      } else {
-        alert('Signup successful');
-        document.getElementById('signupForm').reset();
-        toggleAuthForms();
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Error signing up. Please try again later.');
-    });
-}
-
-function login() {
-  const emailPhone = document.getElementById('login-email-phone').value.trim();
-  const password = document.getElementById('login-password').value.trim();
-
-  if (!validateEmailPhone(emailPhone)) {
-    document.getElementById('login-email-phone-error').classList.remove('hidden');
-    return;
-  } else {
-    document.getElementById('login-email-phone-error').classList.add('hidden');
-  }
-
-  fetch('/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ emailPhone, password }),
-  })
-    .then(response => response.json())
-    .then(data => {
-      if (data.error) {
-        alert(data.error);
-      } else {
-        const { name, emailPhone, profilePic } = data.user;
-        document.getElementById('profile-pic').setAttribute('src', profilePic);
-        document.getElementById('profile-name').textContent = name;
-        document.getElementById('profile-email-phone').textContent = emailPhone;
-
-        localStorage.setItem('loggedInUser', JSON.stringify({ name, emailPhone, profilePic }));
-
-        document.getElementById('auth-container').classList.add('hidden');
-        document.getElementById('ngl-container').classList.remove('hidden');
-      }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Error logging in. Please try again later.');
-    });
-}
-
-function logout() {
-  localStorage.removeItem('loggedInUser');
-
-  document.getElementById('ngl-container').classList.add('hidden');
-  document.getElementById('auth-container').classList.remove('hidden');
-
-  document.getElementById('login-email-phone').value = '';
-  document.getElementById('login-password').value = '';
-}
-
-function validateEmailPhone(input) {
-  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  const phonePattern = /^[0-9]{10}$/;
-
-  return emailPattern.test(input) || phonePattern.test(input);
-}
-
-function fetchNGLContent() {
-  const username = document.getElementById('username').value.trim();
-  const category = document.getElementById('category').value;
-  const amount = document.getElementById('amount').value;
-
-  if (!username) {
-    alert('Username is required');
-    return;
-  }
-
-  fetch(`https://ngl-fml8.onrender.com/ngl?username=${username}&category=${category}&amount=${amount}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-      if (data.message) {
-        alert(`${data.message} - Developed by: ${data.developedBy}`);
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching NGL content:', error);
-    });
-}
-</script>
+<div class="container">
+  <h1>404</h1>
+  <p>Oops! The page you're looking for doesn't exist.</p>
+  <a href="index.html">Go Home</a>
+</div>
 </body>
 </html>
